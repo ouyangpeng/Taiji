@@ -3,3 +3,4 @@
 
 #效果图
 
+![](https://github.com/ouyangpeng/Taiji/blob/master/Taiji/screen/taiji.png) 
