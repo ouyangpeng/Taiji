@@ -38,7 +38,7 @@ public class TaijiActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taiji);
         taiJi = (TaiJi) findViewById(R.id.view_taiji);
-//        mHandler.sendEmptyMessageDelayed(0, 20);
+        mHandler.sendEmptyMessageDelayed(0, 20);
     }
 
     @Override
