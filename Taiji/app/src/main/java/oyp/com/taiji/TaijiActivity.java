@@ -17,6 +17,7 @@ public class TaijiActivity extends Activity {
     }
 
     static class MyHandler extends Handler {
+        //使用WeakReference防止内存泄露
         WeakReference<Activity> mActivityReference;
 
         MyHandler(TaijiActivity activity) {
@@ -43,7 +44,8 @@ public class TaijiActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        super.onDestroy();
+        //onDestroy的时候一处所有的CallbacksAndMessages
         mHandler.removeCallbacksAndMessages(null);
+        super.onDestroy();
     }
 }

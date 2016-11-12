@@ -10,7 +10,7 @@ import android.view.View;
 
 public class TaiJi extends View {
     private Paint whitePaint;   //白色画笔
-    private Paint blackPaing;   //黑色画笔
+    private Paint blackPaint;   //黑色画笔
 
     public TaiJi(Context context) {
         this(context, null);
@@ -22,7 +22,6 @@ public class TaiJi extends View {
 
     public TaiJi(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         initPaints();
     }
 
@@ -32,8 +31,8 @@ public class TaiJi extends View {
         whitePaint.setAntiAlias(true);
         whitePaint.setColor(Color.WHITE);
 
-        blackPaing = new Paint(whitePaint);
-        blackPaing.setColor(Color.BLACK);
+        blackPaint = new Paint(whitePaint);
+        blackPaint.setColor(Color.BLACK);
     }
 
 
@@ -50,21 +49,21 @@ public class TaiJi extends View {
         //绘制两个半圆
         int radius = Math.min(width, height) / 2 - 100;        		//太极半径
         RectF rect = new RectF(-radius, -radius, radius, radius);   //绘制区域
-        canvas.drawArc(rect, 90, 180, true, blackPaing);            //绘制黑色半圆
+        canvas.drawArc(rect, 90, 180, true, blackPaint);            //绘制黑色半圆
         canvas.drawArc(rect, -90, 180, true, whitePaint);           //绘制白色半圆
 
         //绘制两个小圆
         int smallRadius = radius / 2;	                            //小圆半径为大圆的一半
-        canvas.drawCircle(0, -smallRadius, smallRadius, blackPaing);
+        canvas.drawCircle(0, -smallRadius, smallRadius, blackPaint);
         canvas.drawCircle(0, smallRadius, smallRadius, whitePaint);
 
         //绘制鱼眼（两个更小的圆）
         canvas.drawCircle(0, -smallRadius, smallRadius / 4, whitePaint);
-        canvas.drawCircle(0, smallRadius, smallRadius / 4, blackPaing);
-
+        canvas.drawCircle(0, smallRadius, smallRadius / 4, blackPaint);
     }
 
     private float degrees = 0;                  //旋转角度
+
     public void setRotate(float degrees) {
         this.degrees = degrees;
         invalidate();                           //重绘界面
